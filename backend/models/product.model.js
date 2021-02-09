@@ -21,6 +21,10 @@ const Product = new Schema({
     codePromo: {
         type: String,
     },
+    img: { 
+        data: Buffer, 
+        contentType: String 
+     },
     sousCategory: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'SousCategory'

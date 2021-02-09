@@ -24,11 +24,13 @@ axios.get('http://localhost:8080/sousCategory')
 .then(function (response) {
 
     for (let i = 0; i < 8; i++) {
-        sctgContinner.innerHTML += `<div class="col-lg-3">
+        sctgContinner.innerHTML += `<div class="col-lg-2">
         <div class="D" style="margin-left: 28%;">
           <div class="circle mx-auto">
-            <img src="images/mcdo-460x460 (2).png" alt="">
-            <h4>${response.data[i].nom}</h4>
+            <h4 style="font-size: 20px;
+            margin-left: 20%;
+            color: darkgreen;
+            font-weight: bold;">${response.data[i].nom}</h4>
           </div>
         </div>
 

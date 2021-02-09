@@ -1011,7 +1011,7 @@ padding-top: 30px;
 .all2{
    
  width: 90%;
- height:1000px;
+ height:1240px;
  background-color: #FFFFFF;
  margin: auto;
  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -1089,22 +1089,11 @@ padding-top: 30px;
  font-family: verdana;
  font-size:1.2em
 }
-#menu-accordeon ul li a, #menu-accordeon li:hover li a {
- font-size:1em
+#menu-accordeon a:hover {
+background-color:#fafad2;
 }
-#menu-accordeon li:hover {
-  background: white
-}
-#menu-accordeon li li:hover {
-  background: #999;
-}
-#menu-accordeon ul li:last-child {
-  border-radius: 0 0 6px 6px;
-  border:none;
-}
-#menu-accordeon li:hover li {
- max-height: 15em;
-}
+
+
 
 #menu-accordeon h5{
    color: rgb(154, 163, 163);
