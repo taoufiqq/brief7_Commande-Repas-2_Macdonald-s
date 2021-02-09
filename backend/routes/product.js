@@ -16,7 +16,10 @@ router.get('/showAll', (req,res) =>{
 router.get('/:idSousCtg', (req,res) =>{
 
   Product.find({sousCategory: `${req.params.idSousCtg}`})
-  .then((Product) => res.json(Product))
+  .then(Product =>{ 
+    res.json(Product)
+
+  })
   .catch((err) => res.status(400).json("Error :" + err));
 });
 
