@@ -308,3 +308,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   ui.getButtons();
   ui.cartLogic();
 });
+
+
+
+
+checkout = document.getElementById('checkout');
+
+checkout.addEventListener('click', () => {
+
+
+    total = document.querySelector('.cart__total').innerText;
+
+
+    localStorage.setItem('total', total);
+
+    window.location.href = "payment.html";
+});

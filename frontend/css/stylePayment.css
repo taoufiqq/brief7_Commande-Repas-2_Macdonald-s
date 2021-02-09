@@ -20,7 +20,7 @@ body {
 
     position: relative;
 	height: 100%;
-	background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/slider-2.jpg');
+	background-image: url('../images/bitcoin.jpg');
 	background-size: cover;
 	overflow: auto;
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
@@ -29,6 +29,7 @@ body {
 .payment-title {
     width: 100%;
     text-align: center;
+    color: white;
 }
 
 .form-container .field-container:first-of-type {
@@ -361,3 +362,119 @@ input {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
 }
+
+
+/* -----------------------------Start style page invoice---------------------------- */
+
+#invoice-POS {
+border: 1px solid gray;
+    padding: 2mm;
+    margin: 0 auto;
+    width: 130mm;
+    background: #FFF;
+
+    border-radius: 2%;
+    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.001), 0 1px 2px rgba(255, 255, 255, 0.002);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  }
+  #invoice-POS ::selection {
+    background: #f31544;
+    color: #FFF;
+  }
+  #invoice-POS ::moz-selection {
+    background: #f31544;
+    color: #FFF;
+  }
+  #invoice-POS h1 {
+    font-size: 1.5em;
+    color: #222;
+  }
+  #invoice-POS h2 {
+    font-size: 19px;
+  }
+  #invoice-POS h3 {
+    font-size: 1.2em;
+    font-weight: 300;
+    line-height: 2em;
+  }
+  #invoice-POS p {
+    font-size: 0.7em;
+    color: #666;
+    line-height: 1.2em;
+  }
+  #invoice-POS #top, #invoice-POS #mid, #invoice-POS #bot {
+    /* Targets all id with 'col-' */
+    border-bottom: 1px solid #EEE;
+  }
+  #invoice-POS #top {
+    min-height: 100px;
+  }
+  #invoice-POS #mid {
+    min-height: 80px;
+  }
+  #invoice-POS #bot {
+    min-height: 50px;
+  }
+  #invoice-POS #top .logo img{
+    height: 93px;
+
+  }
+  /* #invoice-POS .clientlogo {
+    float: left;
+    height: 60px;
+    width: 60px;
+    background: url(images/client.jpg) no-repeat;
+    background-size: 60px 60px;
+    border-radius: 50px;
+  } */
+  #invoice-POS .info {
+    display: block;
+    margin-left: 0;
+  }
+  #invoice-POS .title {
+    float: right;
+  }
+  #invoice-POS .title p {
+    text-align: right;
+  }
+  #invoice-POS table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  #invoice-POS .tabletitle {
+    font-size: 1.5em;
+    background: #EEE;
+  }
+  #invoice-POS .service {
+    border-bottom: 1px solid #EEE;
+  }
+  #invoice-POS .item {
+    width: 24mm;
+  }
+  #invoice-POS .itemtext {
+    font-size: 0.8em;
+  }
+  #invoice-POS #legalcopy {
+    margin-top: 5mm;
+  }
+
+    .btn {
+        cursor: pointer;
+        font-size: 15px;
+        color: black;
+        OUTLINE: none;
+        width: 50%;
+        margin-left: 50%;
+        background: white;
+        border-radius: 5px;
+    }
+    .btn:hover{
+        background: black;
+        color: white;
+    } 
+
+  @media print{
+    .btn{
+        display:none;
+    }
+ }
