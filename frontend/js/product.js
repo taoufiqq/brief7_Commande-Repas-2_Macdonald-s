@@ -367,7 +367,9 @@ checkout.addEventListener('click', () => {
           let tmp = (intTotal * pourcentage) / 100;
           let totalAfterCode = intTotal - tmp;
 
-          total = document.querySelector('.cart__total').innerText = totalAfterCode
+          localStorage.setItem('total', totalAfterCode);
+
+          total = document.querySelector('.cart__total').innerHTML = totalAfterCode
 
 
           // set isvalid to false in db 
