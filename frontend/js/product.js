@@ -307,20 +307,115 @@ document.addEventListener("DOMContentLoaded", async () => {
   Storage.saveProduct(products);
   ui.getButtons();
   ui.cartLogic();
+
+
+
+
+serviceTable =document.getElementById('serviceTable');
+
+axios.get('http://localhost:8080/table')
+.then(function (response) {
+
+// check if codepromo in db 
+
+for (let i = 0; i < response.data.length; i++) {
+
+  if (response.data[i].isOcuped == false) {
+
+    serviceTable.innerHTML+=`<option value="${response.data[i].numTable}">${response.data[i].numTable}</option>`
+    
+  }
+
+}
+
+}).catch(function (err) {
+console.log(err);
 });
 
-
-
+});
 
 checkout = document.getElementById('checkout');
 
 checkout.addEventListener('click', () => {
 
 
-    total = document.querySelector('.cart__total').innerText;
+
+  let table = document.getElementById('serviceTable').value;
+  total = document.querySelector('.cart__total').innerText;
+  var intTotal = parseInt(total);
+  let codePromo = document.getElementById('codePromo').value;
 
 
-    localStorage.setItem('total', total);
+  let pourcentage = 0;
 
+
+  // code promo 
+
+
+  axios.get('http://localhost:8080/Codepromo')
+    .then(function (response) {
+
+      // check if codepromo in db 
+
+      for (let i = 0; i < response.data.length; i++) {
+
+
+        if (codePromo === response.data[i].code && response.data[i].isValid == true) {
+
+          pourcentage = response.data[i].pourcentage;
+          codePromoId = response.data[i]._id;
+          let tmp = (intTotal * pourcentage) / 100;
+          let totalAfterCode = intTotal - tmp;
+
+          total = document.querySelector('.cart__total').innerText = totalAfterCode
+
+
+          // set isvalid to false in db 
+          axios.put(`http://localhost:8080/Codepromo/update/${codePromoId}`)
+            .then(function (response) {
+              console.log('updated');
+            })
+            .catch(function (err) {
+              console.log(err);
+            });
+
+
+        } else {
+          setTimeout(() => {console.log('code invalid or expaired ...!')},300)
+
+        }
+
+
+      }
+
+
+    }).catch(function (err) {
+      console.log(err);
+    });
+
+
+
+// --------------------- service a table  --------------------------------------
+
+
+
+// set ocuped to ture after checkout 
+
+
+axios.put(`http://localhost:8080/table/update/${table}`)
+            .then(function (response) {
+              console.log('updated');
+            })
+            .catch(function (err) {
+              console.log(err);
+            });
+
+
+  localStorage.setItem('total', total);
+  setTimeout(() => {
     window.location.href = "payment.html";
-});
+  },1000)
+
+  let xcart = Storage.getCart();
+
+})

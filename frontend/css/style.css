@@ -668,6 +668,21 @@
      padding: 15px 20px;
      font-family: poppins;
 }
+
+
+#codePromo{
+     text-align: center;
+     border: 1px dashed;
+     margin-left: 41%;
+}
+
+#serviceTable{
+     margin-left: 41%;
+     width: 18%;
+     border: 1px solid;
+}
+
+
  .form-control:focus {
      box-shadow: inherit;
      border: #fff solid 2px !important;
